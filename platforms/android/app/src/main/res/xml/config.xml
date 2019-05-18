@@ -19,6 +19,10 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <allow-intent href="market:*" />
+    <icon density="hdpi" src="res/mipmap-hdpi/GTraveling.png" />
+    <icon density="mdpi" src="res/mipmap-mdpi/GTraveling.png" />
+    <icon density="xhdpi" src="res/mipmap-xhdpi/GTraveling.png" />
+    <icon density="xxhdpi" src="res/mipmap-xxhdpi/GTraveling.png" />
+    <icon density="xxxhdpi" src="res/mipmap-xxxhdpi/GTraveling.png" />
     <preference name="loglevel" value="DEBUG" />
 </widget>

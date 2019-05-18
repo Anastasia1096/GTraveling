@@ -8,7 +8,6 @@
         Apache Cordova Team
     </author>
     <content src="index.html" />
-    <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -17,10 +16,16 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <platform name="android">
-        <allow-intent href="market:*" />
+        <icon density="hdpi" src="res/mipmap-hdpi/GTraveling.png" />
+        <icon density="mdpi" src="res/mipmap-mdpi/GTraveling.png" />
+        <icon density="xhdpi" src="res/mipmap-xhdpi/GTraveling.png" />
+        <icon density="xxhdpi" src="res/mipmap-xxhdpi/GTraveling.png" />
+        <icon density="xxxhdpi" src="res/mipmap-xxxhdpi/GTraveling.png" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <engine name="android" spec="^8.0.0" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
 </widget>
