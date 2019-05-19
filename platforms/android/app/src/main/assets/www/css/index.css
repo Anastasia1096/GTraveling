@@ -47,9 +47,7 @@ body {
 
 /* Portrait layout (default) */
 .app {
-                 /* position in the center of the screen */
-    
-                     /* text area width */
+    width: 350px;
     text-align:center;
     padding:15px 15px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
      /* offset vertical: half of image height and text area height */
@@ -60,20 +58,17 @@ body {
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
         background-position:left center;
-        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+        /*padding:75px 0px 75px 170px;*/  /* padding-top + padding-bottom + text area = image height */
+        /*margin:-90px 0px 0px -198px;*/  /* offset vertical: half of image height */
                                       /* offset horizontal: half of image width and text area width */
     }
 }
 
-h1 {
-    font-size:24px;
-    font-weight:normal;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
-    text-align:center;
-    color: #6C0388;
+img.plus {
+    /* scommentare in cordova */
+    position: absolute;
+    right: 0;
+    /*margin-right: 20px;*/
 }
 
 .event {
@@ -114,8 +109,11 @@ h1 {
 
 /* TOOLBAR */
 .toolbar {
+    /* scommentare in cordova */
     position: absolute;
     bottom: 0;
+    width: 100%;
+    
     border-top: 1px solid #6c0388;
     background-color: transparent;
 }
@@ -123,13 +121,142 @@ h1 {
     display: flex;   
     flex-direction: row;
 }
-.toolbar .col-5 {
+.toolbar .col {
     border-right: 1px solid #6c0388;
     text-align: center;
     background-color: transparent;
+    width: 100%;
+    padding: 7px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.toolbar .col-5:last-child {
+.toolbar .col:last-child {
     border-right: none;
 }
 
 /* NUOVO ITINERARIO */
+.new-itinerary {
+    padding: 15px;
+    text-align: left;
+    color: #6c0388;
+}
+.new-itinerary .row {
+    padding: 10px 0;
+    display: flex;
+}
+.new-itinerary .row:first-child {
+    display: flex;
+    justify-content: center;
+}
+.new-itinerary .row:last-child {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+.new-itinerary .row .col-4 {
+    width: 100px;
+}
+.new-itinerary .row:nth-child(7) .col-8 {
+    display: flex;
+    align-items: center;
+}
+.new-itinerary .row h3 {
+    color: #6c0388;
+    margin: 0 0 10px;
+    font-size: 20px;
+    text-align: center;
+}
+.new-itinerary .row label {
+    font-size: 18px;
+    font-weight: bold;
+}
+.new-itinerary .row input {
+    border: none;
+    border-bottom: 1px solid #6c0388;
+    background-color: transparent;
+    text-align: left;
+    color: #6c0388;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 8px;
+}
+.new-itinerary .row input:focus {
+    outline: none;
+}
+.new-itinerary .row input::placeholder {
+    color: #6c0388;
+}
+.new-itinerary .row select {
+    border: none;
+    border-bottom: 1px solid #6c0388;
+    background-color: transparent;
+    text-align: center;
+    color: #6c0388;
+    font-size: 16px;
+}
+.new-itinerary .row select:focus {
+    outline: none;
+}
+.new-itinerary .row .col-6 input {
+    display: inline-block;
+}
+[type="time"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: transparent;
+}
+
+/* USER */
+.user {
+    padding: 15px;
+    text-align: left;
+}
+.user .row {
+    padding: 10px 0;
+    display: flex;
+}
+.user .row:first-child {
+    display: flex;
+    justify-content: center;
+}
+.user .row .col-4 {
+    width: 100%;
+}
+.user .row label {
+    font-size: 18px;
+    font-weight: bold;
+}
+.user .row input {
+    border: none;
+    border-bottom: 1px solid #6c0388;
+    background-color: transparent;
+    text-align: left;
+    color: #6c0388;
+    font-size: 16px;
+    display: block;
+}
+.user .row input:focus {
+    outline: none;
+}
+.user .row input::placeholder {
+    color: #6c0388;
+}
+.user .row select {
+    border: none;
+    border-bottom: 1px solid #6c0388;
+    background-color: transparent;
+    text-align: center;
+    color: #6c0388;
+    font-size: 16px;
+}
+.user .row select:focus {
+    outline: none;
+}
+.user .row .col-10 {
+    width: 85%;
+}

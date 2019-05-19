@@ -68,7 +68,7 @@ img.plus {
     /* scommentare in cordova */
     position: absolute;
     right: 0;
-    margin-right: 20px;
+    /*margin-right: 20px;*/
 }
 
 .event {
@@ -112,6 +112,7 @@ img.plus {
     /* scommentare in cordova */
     position: absolute;
     bottom: 0;
+    width: 100%;
     
     border-top: 1px solid #6c0388;
     background-color: transparent;
@@ -138,6 +139,7 @@ img.plus {
 .new-itinerary {
     padding: 15px;
     text-align: left;
+    color: #6c0388;
 }
 .new-itinerary .row {
     padding: 10px 0;
@@ -153,7 +155,7 @@ img.plus {
     justify-content: space-evenly;
 }
 .new-itinerary .row .col-4 {
-    width: 80px;
+    width: 100px;
 }
 .new-itinerary .row:nth-child(7) .col-8 {
     display: flex;
@@ -177,6 +179,7 @@ img.plus {
     color: #6c0388;
     font-size: 16px;
     display: block;
+    margin-bottom: 8px;
 }
 .new-itinerary .row input:focus {
     outline: none;
