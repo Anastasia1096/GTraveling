@@ -24,7 +24,8 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#DD87F0;
+    background-image: url(../img/background-2.jpg);
+    background-size: cover;
     /* background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
@@ -36,18 +37,20 @@ body {
         color-stop(0.51, #E4E4E4)
     ); */
     background-attachment:fixed;
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-family: 'Dancing Script', cursive;
     font-size:12px;
     height:100%;
     margin:0px;
     padding:0px;
-    text-transform:uppercase;
     width:100%;
 }
 
 /* Portrait layout (default) */
 .app {
-    width: 350px;
+    background-color: #7b7979;
+    opacity: 0.7;
+    width: 100%;
+    height: 100vh;
     text-align:center;
     padding:15px 15px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
      /* offset vertical: half of image height and text area height */
@@ -57,7 +60,7 @@ body {
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
-        background-position:left center;
+        /*background-position:left center;*/
         /*padding:75px 0px 75px 170px;*/  /* padding-top + padding-bottom + text area = image height */
         /*margin:-90px 0px 0px -198px;*/  /* offset vertical: half of image height */
                                       /* offset horizontal: half of image width and text area width */
@@ -114,22 +117,33 @@ img.plus {
     bottom: 0;
     width: 100%;
     
-    border-top: 1px solid #6c0388;
-    background-color: transparent;
+    border: none;
+    background: 
+    linear-gradient(
+      to left, 
+      rgb(251, 201, 38) 0%,
+      rgb(253, 237, 176) 25%,
+      rgb(195, 146, 46) 60%,
+      rgb(238, 214, 136) 100%
+    )
+    left 
+    top
+    transparent    
+    no-repeat; 
+  background-size: 100% 1px;
 }
 .toolbar .row {
     display: flex;   
     flex-direction: row;
 }
 .toolbar .col {
-    border-right: 1px solid #6c0388;
     text-align: center;
     background-color: transparent;
     width: 100%;
-    padding: 7px 0;
+    padding: 10px 0 5px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
 }
 .toolbar .col:last-child {
     border-right: none;
@@ -139,7 +153,6 @@ img.plus {
 .new-itinerary {
     padding: 15px;
     text-align: left;
-    color: #6c0388;
 }
 .new-itinerary .row {
     padding: 10px 0;
@@ -162,7 +175,9 @@ img.plus {
     align-items: center;
 }
 .new-itinerary .row h3 {
-    color: #6c0388;
+   background: -webkit-linear-gradient(#fbc926, #fdedb0, #eed688);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
     margin: 0 0 10px;
     font-size: 20px;
     text-align: center;
@@ -170,30 +185,55 @@ img.plus {
 .new-itinerary .row label {
     font-size: 18px;
     font-weight: bold;
+    background: -webkit-linear-gradient(#fbc926, #fdedb0, #eed688);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .new-itinerary .row input {
     border: none;
-    border-bottom: 1px solid #6c0388;
-    background-color: transparent;
     text-align: left;
-    color: #6c0388;
+    color: #333;
     font-size: 16px;
     display: block;
     margin-bottom: 8px;
+    background: 
+    linear-gradient(
+      to left, 
+      rgb(251, 201, 38) 0%,
+      rgb(253, 237, 176) 25%,
+      rgb(195, 146, 46) 60%,
+      rgb(238, 214, 136) 100%
+    )
+    left 
+    bottom
+    transparent    
+    no-repeat; 
+  background-size: 100% 1px ;
 }
 .new-itinerary .row input:focus {
     outline: none;
 }
 .new-itinerary .row input::placeholder {
-    color: #6c0388;
+    color: #333;
 }
 .new-itinerary .row select {
     border: none;
-    border-bottom: 1px solid #6c0388;
-    background-color: transparent;
     text-align: center;
-    color: #6c0388;
+    color: #333;
     font-size: 16px;
+    background: 
+    linear-gradient(
+      to left, 
+      rgb(251, 201, 38) 0%,
+      rgb(253, 237, 176) 25%,
+      rgb(195, 146, 46) 60%,
+      rgb(238, 214, 136) 100%
+    )
+    left 
+    bottom
+    transparent    
+    no-repeat; 
+  background-size: 100% 1px;
 }
 .new-itinerary .row select:focus {
     outline: none;
@@ -230,32 +270,35 @@ img.plus {
 .user .row label {
     font-size: 18px;
     font-weight: bold;
+    background: -webkit-linear-gradient(#fbc926, #fdedb0, #eed688);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .user .row input {
     border: none;
-    border-bottom: 1px solid #6c0388;
-    background-color: transparent;
     text-align: left;
-    color: #6c0388;
+    color: #333;
     font-size: 16px;
     display: block;
+    background: 
+    linear-gradient(
+      to left, 
+      rgb(251, 201, 38) 0%,
+      rgb(253, 237, 176) 25%,
+      rgb(195, 146, 46) 60%,
+      rgb(238, 214, 136) 100%
+    )
+    left 
+    bottom
+    transparent    
+    no-repeat; 
+  background-size: 100% 1px;
 }
 .user .row input:focus {
     outline: none;
 }
 .user .row input::placeholder {
-    color: #6c0388;
-}
-.user .row select {
-    border: none;
-    border-bottom: 1px solid #6c0388;
-    background-color: transparent;
-    text-align: center;
-    color: #6c0388;
-    font-size: 16px;
-}
-.user .row select:focus {
-    outline: none;
+    color: #333;
 }
 .user .row .col-10 {
     width: 85%;
