@@ -51,29 +51,27 @@ body {
     opacity: 0.7;
     width: 100%;
     height: 100vh;
-    text-align:center;
-    padding:15px 15px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-     /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
+    text-align:center;  
 }
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
-        /*background-position:left center;*/
-        /*padding:75px 0px 75px 170px;*/  /* padding-top + padding-bottom + text area = image height */
-        /*margin:-90px 0px 0px -198px;*/  /* offset vertical: half of image height */
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
                                       /* offset horizontal: half of image width and text area width */
     }
 }
 
 img.plus {
-    /* scommentare in cordova */
     position: absolute;
-    right: 0;
-    padding-right: 20px;
+    right: 20px;
     padding-top: 20px;
-    /*margin-right: 20px;*/
+}
+
+#map {
+    height: 100%;
 }
 
 .event {
@@ -251,6 +249,19 @@ img.plus {
 }
 [type="date"]::-webkit-calendar-picker-indicator {
   background-color: transparent;
+}
+.new-itinerary .city {
+    display: none;
+}
+.new-itinerary #showcity {
+    width: 100px;
+    height: 100px;
+    background-color: slateblue;
+}
+.new-itinerary #showtour {
+    width: 10px;
+    height: 100px;
+    background-color: greenyellow;
 }
 
 /* USER */

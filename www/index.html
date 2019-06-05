@@ -45,6 +45,10 @@
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div> -->
+
+            <div id="map"></div>
+
+            </div>
         </div>
         
         <div class="container toolbar">
@@ -62,5 +66,16 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script>
+            var map;
+            function initMap() {
+              map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: -34.397, lng: 150.644},
+                zoom: 8
+              });
+            }
+          </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9QqJT9KPkaI4fgBOtn64ghH3nrTK__I8&callback=initMap"
+        async defer></script>   
     </body>
 </html>
