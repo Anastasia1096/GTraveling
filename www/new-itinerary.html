@@ -28,7 +28,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+       <!--  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -111,22 +111,24 @@
                             <input type="text" id="hotel" name="hotel" required placeholder="where to sleep">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row show">
                         <div class="col-6">
-                            <input type="radio" name="demo" value="City"/> Visit a city
+                            <input type="radio" name="demo" value="City" class="input-showCity"/> Visit a city
                         </div>
                         <div class="col-6">
-                            <input type="radio" name="demo" value="Tour"/> Tour
+                            <input type="radio" name="demo" value="Tour" class="input-showTour"/> Tour
                         </div>
                     </div>
+                    <div class="city showCity">
+                        <p>visit a city showed</p>
+                    </div>
 
-                        <div class="city" id="showCity">
-                            <p>visit a city showed</p>
-                        </div>
+                    <div class="city showTour">
+                        <p>tour showed</p>
+                    </div>
 
-                        <div class="city" id="showTour">
-                            <p>tour showed</p>
-                        </div>
+                    <div class="row"><button class="btn save">Save</button></div>
+                       
             </div>
         </div>
         
@@ -143,16 +145,64 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="cordova.js"></script>
+        
 
-        <script>
+        <!-- <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
+ -->
+
+        <script type="text/javascript">
             $(document).ready(function(){
-        $('input[type="radio"]').click(function(){
-            var demovalue = $(this).val(); 
-            $("div.city").hide();
-            $("#show"+demovalue).show();
-        });
-    });
-</script>
+                $(".showCity").hide();
+                $(".input-showCity").click(function(){
+                    $(".showCity").show();
+                    $(".showTour").hide();
+                });
+
+                $(".showTour").hide();
+                $(".input-showTour").click(function(){
+                    $(".showTour").show();
+                    $(".showCity").hide();
+                });
+            });
+        </script>
+
+
+        <script type="text/javascript">
+
+            $(".save").on("click", function() {
+                let travel = {
+                    title: $('#name').val(),
+                    when: "periodo",
+                    how: "mezzo di trasporto",
+                    start: "bla bla",
+                    end: "car",
+                    sleep: "hotel"
+                };
+
+                //get di tutto quello che hai salvato
+                let travelsRaw = window.localStorage.getItem("travels");
+                //da json ad array di oggetti
+                let travels = [];
+                if (travelsRaw != undefined) {
+                    travels = JSON.parse(travelsRaw);
+                }
+
+                //quello nuovo che aggiungi
+                travels.push(travel)
+
+                //salvataggio di vecchi + nuovo
+                window.localStorage.setItem("travels", travels);
+            })
+            // Wait for Cordova to load
+            //
+            document.addEventListener("deviceready", onDeviceReady, false);
+
+            // Cordova is ready
+            //
+            function onDeviceReady() {
+
+            }
+        </script>
     </body>
 </html>

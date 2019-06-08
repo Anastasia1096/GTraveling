@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html lang="en">
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Abhaya+Libre:400,500,600,700,800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>GTraveling</title>
+</head>
+<body>
+    <div class="app">
+        
+        <div class="container library">
+            <div class="row">
+                <div class="col-3"><p>Francia</p></div>
+                <div class="col-3"><p>Olanda</p></div>
+                <div class="col-3"><p>Spagna</p></div>
+                <div class="col-3"><p>Francia</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container toolbar">
+        <div class="row">
+            <div class="col"><a href="new-itinerary.html"><img src="img/icon/icon-new-itinerary.png" alt="icon-new-itinerary" width="40"></a></div>
+            <div class="col"><a href="library.html"><img src="img/icon/icon-library.png" alt="icon-library" width="40"></a></div>
+            <div class="col"><a href="index.html"><img src="img/icon/icon-map.png" alt="icon-map" width="40"></a></div>
+            <div class="col"><a href="user.html"><img src="img/icon/icona-user.png" alt="icon-profile" width="40"></a></div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
+
+
+    <script type="text/javascript">
+        //get di tutto quello che hai salvato
+        let travelsRaw = window.localStorage.getItem("travels");
+        //da json ad array di oggetti
+        let travels = [];
+        if (travelsRaw != undefined) {
+            travels = JSON.parse(travelsRaw);
+        }
+    
+        for (let i=0; i<travels.length; i++) {
+            let html = "<div>" + travels[i].from + "</div>";
+            $('.lista').append(html);
+        }
+    </script>
+
+</body>
+</html>
+

@@ -250,15 +250,12 @@ img.plus {
 [type="date"]::-webkit-calendar-picker-indicator {
   background-color: transparent;
 }
-.new-itinerary .city {
-    display: none;
-}
-.new-itinerary #showcity {
+.new-itinerary .showCity {
     width: 100px;
     height: 100px;
     background-color: slateblue;
 }
-.new-itinerary #showtour {
+.new-itinerary .showTour {
     width: 10px;
     height: 100px;
     background-color: greenyellow;

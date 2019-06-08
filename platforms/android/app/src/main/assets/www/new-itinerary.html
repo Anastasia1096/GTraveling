@@ -113,18 +113,18 @@
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <input type="radio" name="demo" value="City"/> Visit a city
+                            <input type="radio" name="demo" value="City" class="input-showCity"/> Visit a city
                         </div>
                         <div class="col-6">
-                            <input type="radio" name="demo" value="Tour"/> Tour
+                            <input type="radio" name="demo" value="Tour" class="input-showTour"/> Tour
                         </div>
                     </div>
 
-                        <div class="city" id="showCity">
+                        <div class="city showCity">
                             <p>visit a city showed</p>
                         </div>
 
-                        <div class="city" id="showTour">
+                        <div class="city showTour">
                             <p>tour showed</p>
                         </div>
             </div>
@@ -143,16 +143,51 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="cordova.js"></script>
+        
 
-        <script>
-            $(document).ready(function(){
-        $('input[type="radio"]').click(function(){
-            var demovalue = $(this).val(); 
-            $("div.city").hide();
-            $("#show"+demovalue).show();
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
+
+        <script type="text/javascript">
+            /* $(document).ready(function(){
+                $('input[type="radio"]').click(function(){
+                    var demovalue = $(this).val(); 
+                    $("div.city").hide();
+                    $("#show"+demovalue).show();
+                });
+            });
+ */
+
+        $(document).ready(function(){
+            $(".showCity").hide();
+            $(".input-showCity").click(function(){
+                $(".showCity").toggle();
+            });
+
+            $(".showTour").hide();
+            $(".input-showTour").click(function(){
+                $(".showTour").toggle();
+            });
         });
-    });
-</script>
+
+
+        // Wait for Cordova to load
+        //
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        // Cordova is ready
+        //
+        function onDeviceReady() {
+            window.localStorage.setItem("key", "value");
+            var keyname = window.localStorage.key(i);
+            // keyname is now equal to "key"
+            var value = window.localStorage.getItem("key");
+            // value is now equal to "value"
+            window.localStorage.removeItem("key");
+            window.localStorage.setItem("key2", "value2");
+            window.localStorage.clear();
+            // localStorage is now empty
+        }
+        </script>
     </body>
 </html>

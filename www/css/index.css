@@ -24,8 +24,12 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+
+    
     background-image: url(../img/background-2.jpg);
     background-size: cover;
+
+    
     /* background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
@@ -72,6 +76,7 @@ img.plus {
 
 #map {
     height: 100%;
+    width: 100%;
 }
 
 .event {
@@ -110,9 +115,10 @@ img.plus {
     -webkit-animation:fade 3000ms infinite;
 }
 
+
+
 /* TOOLBAR */
 .toolbar {
-    /* scommentare in cordova */
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -148,6 +154,8 @@ img.plus {
 .toolbar .col:last-child {
     border-right: none;
 }
+
+
 
 /* NUOVO ITINERARIO */
 .new-itinerary {
@@ -210,6 +218,17 @@ img.plus {
     no-repeat; 
   background-size: 100% 1px ;
 }
+.new-itinerary .show {
+    display: flex;
+    justify-content: space-evenly !important;
+}
+.new-itinerary .show .col-6 {
+    font-size: 22px;
+    font-weight: bold;
+    background: -webkit-linear-gradient(#fbc926, #fdedb0, #eed688);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .new-itinerary .row input:focus {
     outline: none;
 }
@@ -250,19 +269,65 @@ img.plus {
 [type="date"]::-webkit-calendar-picker-indicator {
   background-color: transparent;
 }
-.new-itinerary .city {
-    display: none;
-}
-.new-itinerary #showcity {
+.new-itinerary .showCity {
     width: 100px;
     height: 100px;
     background-color: slateblue;
 }
-.new-itinerary #showtour {
+.new-itinerary .showTour {
     width: 10px;
     height: 100px;
     background-color: greenyellow;
 }
+.new-itinerary .row .save {
+    font-size: 22px;
+    padding: 8px 30px;
+    border: 2px solid;
+    border-image-source: linear-gradient(45deg, 
+    rgb(251, 201, 38) 0%,
+    rgb(253, 237, 176) 25%,
+    rgb(195, 146, 46) 60%,
+    rgb(238, 214, 136) 100%);
+    border-image-slice: 1;
+    font-family: 'Dancing Script', cursive;
+    margin-top: 3rem;
+    background-color: transparent;
+}
+
+
+
+/* LIBRARY */
+.library {
+    padding: 15px;
+}
+.library .row {
+    display: flex;
+    width: 100%;
+    border: none;
+    background: 
+    linear-gradient(
+      to left, 
+      rgb(251, 201, 38) 0%,
+      rgb(253, 237, 176) 25%,
+      rgb(195, 146, 46) 60%,
+      rgb(238, 214, 136) 100%
+    )
+    left 
+    bottom
+    transparent    
+    no-repeat; 
+    background-size: 100% 1px;
+}
+.library .row .col-3 {
+    width: 100%;
+}
+.library .row .col-3 p {
+    transform: rotate(90deg);
+    font-size: 22px;
+    text-align: center;
+    padding: 10px;
+}
+
 
 /* USER */
 .user {
