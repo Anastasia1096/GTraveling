@@ -28,7 +28,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -41,14 +41,16 @@
 <body>
     <div class="app">
         
-        <div class="container library">
+        <!-- <div class="container library">
             <div class="row">
                 <div class="col-3"><p>Francia</p></div>
                 <div class="col-3"><p>Olanda</p></div>
                 <div class="col-3"><p>Spagna</p></div>
-                <div class="col-3"><p>Francia</p></div>
+                <div class="col-3"><p>Belgio</p></div>
             </div>
-        </div>
+        </div> -->
+
+        <div class="lista"> </div>
     </div>
 
     <div class="container toolbar">
@@ -66,15 +68,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
 
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
+    <!-- <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script> -->
 
 
     <script type="text/javascript">
         //get di tutto quello che hai salvato
-        let travelsRaw = window.localStorage.getItem("travels");
+        let travelsRaw =  JSON.parse(localStorage.getItem("travels"));
         //da json ad array di oggetti
-        let travels = [];
+        let travels = {};
         if (travelsRaw != undefined) {
             travels = JSON.parse(travelsRaw);
         }
@@ -87,4 +89,3 @@
 
 </body>
 </html>
-

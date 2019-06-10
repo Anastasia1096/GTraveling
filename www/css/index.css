@@ -26,20 +26,20 @@ body {
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
 
     
-    background-image: url(../img/background-2.jpg);
-    background-size: cover;
+    /* background-image: url(../img/background-2.jpg);
+    background-size: cover; */
 
     
-    /* background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:linear-gradient(top, rgb(27, 13, 0) 0%, rgb(141, 116, 90) 51%);
+    background-image:-webkit-linear-gradient(top, rgb(27, 13, 0) 0%, rgb(141, 116, 90) 51%);
+    background-image:-ms-linear-gradient(top, rgb(27, 13, 0) 0%, rgb(141, 116, 90) 51%);
     background-image:-webkit-gradient(
         linear,
         left top,
         left bottom,
-        color-stop(0, #A7A7A7),
-        color-stop(0.51, #E4E4E4)
-    ); */
+        color-stop(0, rgb(27, 13, 0)),
+        color-stop(0.51, rgb(141, 116, 90))
+    );
     background-attachment:fixed;
     font-family: 'Dancing Script', cursive;
     font-size:12px;
@@ -51,8 +51,8 @@ body {
 
 /* Portrait layout (default) */
 .app {
-    background-color: #7b7979;
-    opacity: 0.7;
+    /* background-color: #7b7979;
+    opacity: 0.7; */
     width: 100%;
     height: 100vh;
     text-align:center;  
@@ -74,9 +74,12 @@ img.plus {
     padding-top: 20px;
 }
 
-#map {
+.map {
     height: 100%;
     width: 100%;
+}
+#map {
+    position: relative;
 }
 
 .event {
@@ -119,7 +122,7 @@ img.plus {
 
 /* TOOLBAR */
 .toolbar {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     
@@ -134,7 +137,7 @@ img.plus {
     )
     left 
     top
-    transparent    
+    rgb(73, 52, 34)
     no-repeat; 
   background-size: 100% 1px;
 }
@@ -149,7 +152,7 @@ img.plus {
     padding: 10px 0 5px;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
 }
 .toolbar .col:last-child {
     border-right: none;
@@ -165,6 +168,7 @@ img.plus {
 .new-itinerary .row {
     padding: 10px 0;
     display: flex;
+    margin: 0;
 }
 .new-itinerary .row:first-child {
     display: flex;
@@ -182,12 +186,11 @@ img.plus {
     display: flex;
     align-items: center;
 }
-.new-itinerary .row h3 {
+.new-itinerary .row h2 {
    background: -webkit-linear-gradient(#fbc926, #fdedb0, #eed688);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
     margin: 0 0 10px;
-    font-size: 20px;
     text-align: center;
 }
 .new-itinerary .row label {
@@ -200,10 +203,11 @@ img.plus {
 .new-itinerary .row input {
     border: none;
     text-align: left;
-    color: #333;
-    font-size: 18px;
+    color: #fff;
+    font-size: 20px;
     display: block;
     margin-bottom: 8px;
+    padding-left: 15px;
     background: 
     linear-gradient(
       to left, 
@@ -233,13 +237,13 @@ img.plus {
     outline: none;
 }
 .new-itinerary .row input::placeholder {
-    color: #333;
+    color: #fff;
 }
 .new-itinerary .row select {
     border: none;
     text-align: center;
-    color: #333;
-    font-size: 18px;
+    color: #fff;
+    font-size: 20px;
     background: 
     linear-gradient(
       to left, 
@@ -253,6 +257,10 @@ img.plus {
     transparent    
     no-repeat; 
   background-size: 100% 1px;
+  /* padding-left: 15px; */
+}
+.new-itinerary .row select option {
+    color: #333 !important;
 }
 .new-itinerary .row select:focus {
     outline: none;
@@ -275,7 +283,7 @@ img.plus {
     background-color: slateblue;
 }
 .new-itinerary .showTour {
-    width: 10px;
+    width: 100px;
     height: 100px;
     background-color: greenyellow;
 }
@@ -290,8 +298,10 @@ img.plus {
     rgb(238, 214, 136) 100%);
     border-image-slice: 1;
     font-family: 'Dancing Script', cursive;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
+    /* margin-bottom: 5rem; */
     background-color: transparent;
+    color: #fff;
 }
 
 
@@ -337,6 +347,7 @@ img.plus {
 .user .row {
     padding: 10px 0;
     display: flex;
+    justify-content: space-around;
 }
 .user .row:first-child {
     display: flex;
@@ -346,17 +357,16 @@ img.plus {
     width: 100%;
 }
 .user .row label {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
     background: -webkit-linear-gradient(#fbc926, #fdedb0, #eed688);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.user .row input {
+.user .row .col-8 {
     border: none;
-    text-align: left;
-    color: #333;
-    font-size: 16px;
+    text-align: center;
+    font-size: 24px;
     display: block;
     background: 
     linear-gradient(
@@ -371,14 +381,32 @@ img.plus {
     transparent    
     no-repeat; 
   background-size: 100% 1px;
-    font-size: 18px;
+  max-width: 230px;
 }
-.user .row input:focus {
-    outline: none;
-}
-.user .row input::placeholder {
-    color: #333;
+.user .row .col-8 p {
+    background: -webkit-linear-gradient(#fbc926, #fdedb0, #eed688);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    margin-bottom: 0;
 }
 .user .row .col-10 {
     width: 85%;
+    padding-left: 30px;
+}
+.user .row img {
+    margin-top: 1.5rem;
+    margin-block-end: 3rem;
+}
+.user .row:last-child {
+    margin-top: 1.5rem !important;
+}
+.user .row button {
+    background-color: transparent;
+    border: none;
+}
+.user .row button:focus {
+    outline: none;
+}
+.user .row button img {
+    margin: 0; 
 }

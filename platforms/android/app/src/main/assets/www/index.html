@@ -28,19 +28,23 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src-elem 'self' https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval'; script-src-elem 'self' https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval'; media-src *; img-src 'self' data: content:;" /> -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abhaya+Libre:400,500,600,700,800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>GTraveling</title>
     </head>
     <body>
         <div class="app">
-            <img src="img/icon/icon-plus.png" alt="icon-plus" width="40" class="plus">
+            <!-- <img src="img/icon/icon-plus.png" alt="icon-plus" width="40" class="plus"> -->
+
+
             <!-- <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
@@ -66,7 +70,27 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script>
+
+
+        <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+        <script type="text/javascript">
+            var map = new ol.Map({
+              target: 'map',
+              layers: [
+                new ol.layer.Tile({
+                  source: new ol.source.OSM()
+                })
+              ],
+              view: new ol.View({
+                center: ol.proj.fromLonLat([37.41, 8.82]),
+                zoom: 4
+              })
+            });
+          </script>
+
+
+
+       <!--  <script>
             var map;
             function initMap() {
               map = new google.maps.Map(document.getElementById('map'), {
@@ -75,7 +99,7 @@
               });
             }
           </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9QqJT9KPkaI4fgBOtn64ghH3nrTK__I8&callback=initMap"
-        async defer></script>   
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXQagH1RDCKVFMEcKxPlSmNqu-ZwOixqg&callback=initMap"
+        type="text/javascript"></script>   -->
     </body>
 </html>

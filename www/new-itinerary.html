@@ -48,7 +48,7 @@
             
             <div class="container new-itinerary">
                    <div class="row">
-                       <h3>Plan your next trip</h3>
+                       <h2>Plan your next trip</h2>
                    </div>
                     <div class="row">
                        <div class="col-4">
@@ -89,8 +89,8 @@
                         </div>
                         <div class="col-8">
                             <input type="text" id="city-a" name="city" required placeholder="where to start">
-                            <input type="date" id="start" name="trip-start">
-                            <input type="time" id="start" name="start" required>
+                            <input type="date" id="city-a" name="trip-start">
+                            <input type="time" id="city-a" name="start" required>
                         </div>
                     </div>
                     <div class="row">
@@ -99,8 +99,8 @@
                         </div>
                         <div class="col-8">
                             <input type="text" id="city-r" name="city" required placeholder="where to go">
-                            <input type="date" id="end" name="trip-end">
-                            <input type="time" id="end" name="end" required>
+                            <input type="date" id="city-r" name="trip-end">
+                            <input type="time" id="city-r" name="end" required>
                         </div>
                     </div>
                     <div class="row">
@@ -111,7 +111,8 @@
                             <input type="text" id="hotel" name="hotel" required placeholder="where to sleep">
                         </div>
                     </div>
-                    <div class="row show">
+                    
+                    <!-- <div class="row show">
                         <div class="col-6">
                             <input type="radio" name="demo" value="City" class="input-showCity"/> Visit a city
                         </div>
@@ -125,7 +126,7 @@
 
                     <div class="city showTour">
                         <p>tour showed</p>
-                    </div>
+                    </div> -->
 
                     <div class="row"><button class="btn save">Save</button></div>
                        
@@ -155,13 +156,13 @@
             $(document).ready(function(){
                 $(".showCity").hide();
                 $(".input-showCity").click(function(){
-                    $(".showCity").show();
+                    $(".showCity").toggle();
                     $(".showTour").hide();
                 });
 
                 $(".showTour").hide();
                 $(".input-showTour").click(function(){
-                    $(".showTour").show();
+                    $(".showTour").toggle();
                     $(".showCity").hide();
                 });
             });
@@ -173,11 +174,11 @@
             $(".save").on("click", function() {
                 let travel = {
                     title: $('#name').val(),
-                    when: "periodo",
-                    how: "mezzo di trasporto",
-                    start: "bla bla",
-                    end: "car",
-                    sleep: "hotel"
+                    when: $('#start').val(),
+                    how: $('#transport').val(),
+                    start: $('#city-a').val(),
+                    end: $('#city-r').val(),
+                    sleep: $('#hotel').val()
                 };
 
                 //get di tutto quello che hai salvato
@@ -189,11 +190,11 @@
                 }
 
                 //quello nuovo che aggiungi
-                travels.push(travel)
+                travels.push(travel);
 
                 //salvataggio di vecchi + nuovo
-                window.localStorage.setItem("travels", travels);
-            })
+                localStorage.setItem("travel", JSON.stringify(travels));
+            });
             // Wait for Cordova to load
             //
             document.addEventListener("deviceready", onDeviceReady, false);
