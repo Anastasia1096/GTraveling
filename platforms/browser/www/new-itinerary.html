@@ -186,15 +186,14 @@
                 //da json ad array di oggetti
                 let travels = [];
                 if (travelsRaw != undefined) {
-                    travels = JSON.stringify(travelsRaw);
-                    /* travels = JSON.parse(travelsRaw); */
+                    travels = JSON.parse(travelsRaw);
                 }
 
                 //quello nuovo che aggiungi
                 travels.push(travel);
 
                 //salvataggio di vecchi + nuovo
-                localStorage.setItem("travel", travels);
+                localStorage.setItem("travel", JSON.stringify(travels));
             });
             // Wait for Cordova to load
             //

@@ -74,9 +74,12 @@ img.plus {
     padding-top: 20px;
 }
 
-#map {
+.map {
     height: 100%;
     width: 100%;
+}
+#map {
+    position: relative;
 }
 
 .event {
@@ -149,7 +152,7 @@ img.plus {
     padding: 10px 0 5px;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
 }
 .toolbar .col:last-child {
     border-right: none;
@@ -191,7 +194,7 @@ img.plus {
     text-align: center;
 }
 .new-itinerary .row label {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     background: -webkit-linear-gradient(#fbc926, #fdedb0, #eed688);
   -webkit-background-clip: text;
@@ -201,7 +204,7 @@ img.plus {
     border: none;
     text-align: left;
     color: #fff;
-    font-size: 24px;
+    font-size: 20px;
     display: block;
     margin-bottom: 8px;
     padding-left: 15px;
@@ -240,7 +243,7 @@ img.plus {
     border: none;
     text-align: center;
     color: #fff;
-    font-size: 24px;
+    font-size: 20px;
     background: 
     linear-gradient(
       to left, 
@@ -254,7 +257,7 @@ img.plus {
     transparent    
     no-repeat; 
   background-size: 100% 1px;
-  padding-left: 15px;
+  /* padding-left: 15px; */
 }
 .new-itinerary .row select option {
     color: #333 !important;
@@ -296,7 +299,7 @@ img.plus {
     border-image-slice: 1;
     font-family: 'Dancing Script', cursive;
     margin-top: 1.5rem;
-    margin-bottom: 5rem;
+    /* margin-bottom: 5rem; */
     background-color: transparent;
     color: #fff;
 }

@@ -30,15 +30,15 @@ body {
     background-size: cover; */
 
     
-    background-image:linear-gradient(top, rgb(27, 13, 0) 0%, rgb(141, 116, 90) 51%);
-    background-image:-webkit-linear-gradient(top, rgb(27, 13, 0) 0%, rgb(141, 116, 90) 51%);
-    background-image:-ms-linear-gradient(top, rgb(27, 13, 0) 0%, rgb(141, 116, 90) 51%);
+    background-image:linear-gradient(top, rgb(81, 47, 6) 0%, rgb(198, 156, 109) 90%);
+    background-image:-webkit-linear-gradient(top, rgb(81, 47, 6) 0%, rgb(198, 156, 109) 90%);
+    background-image:-ms-linear-gradient(top, rgb(81, 47, 6) 0%, rgb(198, 156, 109) 90%);
     background-image:-webkit-gradient(
         linear,
         left top,
         left bottom,
-        color-stop(0, rgb(27, 13, 0)),
-        color-stop(0.51, rgb(141, 116, 90))
+        color-stop(0, rgb(81, 47, 6)),
+        color-stop(0.9, rgb(198, 156, 109))
     );
     background-attachment:fixed;
     font-family: 'Dancing Script', cursive;
@@ -137,7 +137,7 @@ img.plus {
     )
     left 
     top
-    rgb(73, 52, 34)
+    rgb(81, 47, 6)
     no-repeat; 
   background-size: 100% 1px;
 }
@@ -299,7 +299,7 @@ img.plus {
     border-image-slice: 1;
     font-family: 'Dancing Script', cursive;
     margin-top: 1.5rem;
-    /* margin-bottom: 5rem; */
+    margin-bottom: 5rem;
     background-color: transparent;
     color: #fff;
 }
@@ -308,7 +308,7 @@ img.plus {
 
 /* LIBRARY */
 .library {
-    padding: 15px;
+    padding: 0;
 }
 .library .row {
     display: flex;
@@ -327,6 +327,8 @@ img.plus {
     transparent    
     no-repeat; 
     background-size: 100% 1px;
+    padding: 30px;
+    margin: 0;
 }
 .library .row .col-3 {
     width: 100%;
@@ -336,6 +338,9 @@ img.plus {
     font-size: 22px;
     text-align: center;
     padding: 10px;
+}
+.library .lista {
+    color: #fff;
 }
 
 

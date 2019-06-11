@@ -73,6 +73,7 @@
 
 
     <script type="text/javascript">
+    $(document).ready(function() {
         //get di tutto quello che hai salvato
         let travelsRaw =  JSON.parse(localStorage.getItem("travels"));
         //da json ad array di oggetti
@@ -81,13 +82,14 @@
             travels = JSON.parse(travelsRaw);
         }
     
+        console.log(travels);
         for (let i=0; i<travels.length; i++) {
             let html = "<div>" + travels[i].from + "</div>";
             $('.lista').append(html);
         }
+    });
+        
     </script>
 
 </body>
 </html>
-
-var getObject = JSON.parse(localStorage.getItem('storeObj'));
