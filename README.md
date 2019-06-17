@@ -7,3 +7,6 @@ You can insert info like the destination, departure time.. and save everything i
 ## Tech 
 HTML, CSS, jquery, Cordova, Bootstrap
 Icons made with Adobe Illustrator
+
+## Logo
+![alt text](https://github.com/Anastasia1096/GTraveling/blob/master/res/mipmap-xxxhdpi/GTraveling.png "logo GTravelling")
