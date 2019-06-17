@@ -1,7 +1,7 @@
 # GTraveling
 School Project
 
-Planning App for trips.
+Planning App for trips made with Cordova. 
 You can insert info like the destination, departure time.. and save everything in a library that you can edit.
 
 ## Tech 
