@@ -182,15 +182,11 @@ img.plus {
 .new-itinerary .row .col-4 {
     width: 100px;
 }
-.new-itinerary .row:nth-child(7) .col-8 {
-    display: flex;
-    align-items: center;
-}
 .new-itinerary .row h2 {
    background: -webkit-linear-gradient(#fbc926, #fdedb0, #eed688);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-    margin: 0 0 10px;
+    margin: 10px 0 25px;
     text-align: center;
 }
 .new-itinerary .row label {
@@ -222,17 +218,6 @@ img.plus {
     no-repeat; 
   background-size: 100% 1px ;
 }
-.new-itinerary .show {
-    display: flex;
-    justify-content: space-evenly !important;
-}
-.new-itinerary .show .col-6 {
-    font-size: 22px;
-    font-weight: bold;
-    background: -webkit-linear-gradient(#fbc926, #fdedb0, #eed688);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 .new-itinerary .row input:focus {
     outline: none;
 }
@@ -257,7 +242,6 @@ img.plus {
     transparent    
     no-repeat; 
   background-size: 100% 1px;
-  /* padding-left: 15px; */
 }
 .new-itinerary .row select option {
     color: #333 !important;
@@ -276,16 +260,6 @@ img.plus {
 }
 [type="date"]::-webkit-calendar-picker-indicator {
   background-color: transparent;
-}
-.new-itinerary .showCity {
-    width: 100px;
-    height: 100px;
-    background-color: slateblue;
-}
-.new-itinerary .showTour {
-    width: 100px;
-    height: 100px;
-    background-color: greenyellow;
 }
 .new-itinerary .row .save {
     font-size: 22px;
@@ -309,10 +283,14 @@ img.plus {
 /* LIBRARY */
 .library {
     padding: 0;
-}
-.library .row {
     display: flex;
+    justify-content: center;
+}
+.library .lista {
+    display: block;
     width: 100%;
+}
+.library .lista .row {
     border: none;
     background: 
     linear-gradient(
@@ -327,20 +305,46 @@ img.plus {
     transparent    
     no-repeat; 
     background-size: 100% 1px;
-    padding: 30px;
+    padding: 15px;
+    margin: 0;
+    justify-content: center;
+    color: #fff;
+}
+.library .itinerario {
+    position: absolute;
+    padding: 10% 15%;
+    background-color: #fff;
+    width: 80%;
+    height: auto;
+    color: rgb(81, 47, 6);
+    top: 20%;
+    border-radius: 8%;
+}
+.library .itinerario .info {
+    padding-top: 40px;
+}
+.library .itinerario span {
+    display: block;
+    text-align: left;
+    font-size: 22px;
+    color: rgb(81, 47, 6);
+}
+.library .lista h3 {
+    font-size: 26px;
+    padding: 10px;
     margin: 0;
 }
-.library .row .col-3 {
-    width: 100%;
-}
-.library .row .col-3 p {
-    transform: rotate(90deg);
-    font-size: 22px;
+.library .cancel {
+    font-size: 20px;
+    border: 1px solid rgb(81, 47, 6);
+    margin: 0 auto;
+    margin-top: 35px;
+    width: 80px;
     text-align: center;
-    padding: 10px;
 }
-.library .lista {
-    color: #fff;
+.library hr {
+    border-top: 1px solid rgb(81, 47, 6);
+}
 }
 
 

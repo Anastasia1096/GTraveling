@@ -41,16 +41,18 @@
 <body>
     <div class="app">
         
-        <!-- <div class="container library">
-            <div class="row">
-                <div class="col-3"><p>Francia</p></div>
-                <div class="col-3"><p>Olanda</p></div>
-                <div class="col-3"><p>Spagna</p></div>
-                <div class="col-3"><p>Belgio</p></div>
-            </div>
-        </div> -->
+        <div class="container library">
+            <div class="lista">
 
-        <div class="lista"> </div>
+            </div>
+            <div class="itinerario">
+                <img src="img/icon/icon-x.png" alt="chiudi" width="24px" class="close">
+                <div class="info"></div>
+                <div class="cancel" data-id="">cancella</div>
+            </div>
+        </div>
+
+       
     </div>
 
     <div class="container toolbar">
@@ -74,22 +76,72 @@
 
     <script type="text/javascript">
     $(document).ready(function() {
+        $(".itinerario").hide();
         //get di tutto quello che hai salvato
-        let travelsRaw =  JSON.parse(localStorage.getItem("travels"));
+        let travelsRaw = localStorage.getItem("travels");
         //da json ad array di oggetti
         let travels = [];
         if (travelsRaw != undefined) {
             travels = JSON.parse(travelsRaw);
         }
     
-        console.log(travels);
         for (let i=0; i<travels.length; i++) {
-            let html = "<div>" + travels[i].from + "</div>";
+            let html = "<div class='row'><h3 data-id=" + i + ">" + travels[i].where + "</h3></div>";
             $('.lista').append(html);
         }
-    });
         
+    });
     </script>
 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            
+            $(".lista h3").click(function(event){
+                $(".itinerario").hide();
+                console.log($(this).data("id"));
+                let id = $(this).data("id");
+                let travelsRaw = window.localStorage.getItem("travels");
+                
+                //da json ad array di oggetti
+                let travels = [];
+                if (travelsRaw != undefined) {
+                    travels = JSON.parse(travelsRaw);
+                }
+                let travel = travels[id];
+                let print = "<span>Partenza: " + travel.start + "</span>" + "<span>Quando: " + travel.startDate + "</span>" + "<span>Orario: " + travel.startTime + "</span>" + "<hr>" + "<span>Ritorno: " + travel.end + "</span>" + "<span> Quando: " + travel.endDate + "</span>" + "<span>Orario: " + travel.endTime + "</span>" + "<hr>" + "<span>Come: " + travel.how + "</span>";
+
+                $(".itinerario .info").html(print);
+                $(".cancel").data("id", id);
+                $(".itinerario").show();
+            });
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".close").click(function(){
+                $(".itinerario").hide();
+            });
+
+            $(".cancel").click(function() {
+                //get di tutto quello che hai salvato
+                let travelsRaw = window.localStorage.getItem("travels");
+                //da json ad array di oggetti
+                let travels = [];
+                if (travelsRaw != undefined) {
+                    travels = JSON.parse(travelsRaw);
+                }
+
+                let id = $(this).data("id");
+
+                travels.splice(id, 1);
+
+                localStorage.setItem("travels", JSON.stringify(travels));
+
+                window.location.href = "/www/library.html";
+            });
+        });
+    </script>
 </body>
 </html>

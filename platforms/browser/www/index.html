@@ -69,7 +69,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="cordova.js"></script>
+       <!--  <script type="text/javascript" src="cordova.js"></script> -->
         <script type="text/javascript" src="js/index.js"></script>
 
 
@@ -91,7 +91,7 @@
 
 
 <script>
-    import Feature from 'ol/Feature.js';
+   /*  import Feature from 'ol/Feature.js';
     import Map from 'ol/Map.js';
     import Overlay from 'ol/Overlay.js';
     import View from 'ol/View.js';
@@ -99,18 +99,18 @@
     import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer.js';
     import TileJSON from 'ol/source/TileJSON.js';
     import VectorSource from 'ol/source/Vector.js';
-    import {Icon, Style} from 'ol/style.js';
+    import {Icon, Style} from 'ol/style.js'; */
 
 
-    var iconFeature = new Feature({
-      geometry: new Point([0, 0]),
+    var iconFeature = new ol.Feature({
+      geometry: new ol.geom.Point([0, 0]),
       name: 'Null Island',
       population: 4000,
       rainfall: 500
     });
 
-    var iconStyle = new Style({
-      image: new Icon(/** @type {module:ol/style/Icon~Options} */ ({
+    var iconStyle = new ol.style.Style({
+      image: new ol.style.Icon(/** @type {module:ol/style/Icon~Options} */ ({
         anchor: [0.5, 46],
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
@@ -120,25 +120,25 @@
 
     iconFeature.setStyle(iconStyle);
 
-    var vectorSource = new VectorSource({
+    var vectorSource = new ol.source.Vector({
       features: [iconFeature]
     });
 
-    var vectorLayer = new VectorLayer({
+    var vectorLayer = new ol.layer.Vector({
       source: vectorSource
     });
 
-    var rasterLayer = new TileLayer({
-      source: new TileJSON({
-        url: 'https://api.tiles.mapbox.com/v3/mapbox.geography-class.json?secure',
+    var rasterLayer = new ol.layer.Tile({
+      source: new ol.source.TileJSON({
+        url: 'https://api.tiles.mapbox.com/v3/mapbox.geography-class.json?secure&access_token={pk.eyJ1IjoiYW5hc3Rhc2lhMTAiLCJhIjoiY2p2Nm9mY3JpMDFmZzRmbnhudXl6cjVweSJ9.zvtQYaET071_0f6ngm5dpA}',
         crossOrigin: ''
       })
     });
 
-    var map = new Map({
+    var map = new ol.Map({
       layers: [rasterLayer, vectorLayer],
       target: document.getElementById('map'),
-      view: new View({
+      view: new ol.View({
         center: [0, 0],
         zoom: 3
       })
@@ -146,7 +146,7 @@
 
     var element = document.getElementById('popup');
 
-    var popup = new Overlay({
+    var popup = new ol.Overlay({
       element: element,
       positioning: 'bottom-center',
       stopEvent: false,
@@ -185,20 +185,5 @@
       map.getTarget().style.cursor = hit ? 'pointer' : '';
     });
   </script>
-
-
-
-
-       <!--  <script>
-            var map;
-            function initMap() {
-              map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: -34.397, lng: 150.644},
-                zoom: 8
-              });
-            }
-          </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXQagH1RDCKVFMEcKxPlSmNqu-ZwOixqg&callback=initMap"
-        type="text/javascript"></script>   -->
     </body>
 </html>

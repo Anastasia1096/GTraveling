@@ -48,87 +48,55 @@
             
             <div class="container new-itinerary">
                    <div class="row">
-                       <h2>Plan your next trip</h2>
+                       <h2>Il tuo prossimo viaggio</h2>
                    </div>
                     <div class="row">
                        <div class="col-4">
-                            <label for="name">Title:</label>
+                            <label for="name">Dove:</label>
                         </div>
                         <div class="col-8">
-                            <input type="text" id="name" name="name" required placeholder="your next trip">
+                            <input type="text" id="name" name="name" required placeholder="prossima tappa">
                         </div>
                     </div>
                     <div class="row">
                        <div class="col-4">
-                            <label for="trip-start">When:</label>
+                            <label for="city">Partenza:</label>
                         </div>
                         <div class="col-8">
-                            <input type="date" id="start" name="trip-start">
+                            <input type="text" id="city-a" name="city" required placeholder="città di partenza">
+                            <input type="date" id="city-a-date" name="trip-start">
+                            <input type="time" id="city-a-time" name="start" required>
                         </div>
                     </div>
                     <div class="row">
-                      <div class="col-4">
-                           <label for="transport">How:</label>
-                       </div>
-                       <div class="col-8">
-                            <select id="transport">
-                                <option value="">--Please choose a transport--</option>
-                                <option value="airplane">Airplane</option>
-                                <option value="train">Train</option>
-                                <option value="car">Car</option>
-                                <option value="pullman">Pullman</option>
-                                <option value="bike">Bike</option>
-                                <option value="ship">Ship</option>
-                                <option value="walking">Walking</option>
-                            </select>
-                        </div>
-                    </div>
+                        <div class="col-4">
+                             <label for="city">Ritorno:</label>
+                         </div>
+                         <div class="col-8">
+                             <input type="text" id="city-r" name="city" required placeholder="città di ritorno">
+                             <input type="date" id="city-r-date" name="trip-end">
+                             <input type="time" id="city-r-time" name="end" required>
+                         </div>
+                     </div>
                     <div class="row">
-                       <div class="col-4">
-                            <label for="city">Start:</label>
-                        </div>
-                        <div class="col-8">
-                            <input type="text" id="city-a" name="city" required placeholder="where to start">
-                            <input type="date" id="city-a" name="trip-start">
-                            <input type="time" id="city-a" name="start" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                       <div class="col-4">
-                            <label for="city">End:</label>
-                        </div>
-                        <div class="col-8">
-                            <input type="text" id="city-r" name="city" required placeholder="where to go">
-                            <input type="date" id="city-r" name="trip-end">
-                            <input type="time" id="city-r" name="end" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-4">
-                           <label for="hotel">Where to sleep:</label>
-                       </div>
-                       <div class="col-8">
-                            <input type="text" id="hotel" name="hotel" required placeholder="where to sleep">
-                        </div>
-                    </div>
-                    
-                    <!-- <div class="row show">
-                        <div class="col-6">
-                            <input type="radio" name="demo" value="City" class="input-showCity"/> Visit a city
-                        </div>
-                        <div class="col-6">
-                            <input type="radio" name="demo" value="Tour" class="input-showTour"/> Tour
-                        </div>
-                    </div>
-                    <div class="city showCity">
-                        <p>visit a city showed</p>
-                    </div>
+                        <div class="col-4">
+                             <label for="transport">Come:</label>
+                         </div>
+                         <div class="col-8">
+                              <select id="transport">
+                                  <option value="">-- Seleziona --</option>
+                                  <option value="airplane">Aereo</option>
+                                  <option value="train">Treno</option>
+                                  <option value="car">Macchina</option>
+                                  <option value="pullman">Pullman</option>
+                                  <option value="bike">Bici</option>
+                                  <option value="ship">Nave</option>
+                                  <option value="walking">A Piedi</option>
+                              </select>
+                          </div>
+                      </div>
 
-                    <div class="city showTour">
-                        <p>tour showed</p>
-                    </div> -->
-
-                    <div class="row"><button class="btn save">Save</button></div>
+                    <div class="row"><button class="btn save">Salva</button></div>
                        
             </div>
         </div>
@@ -148,37 +116,18 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         
 
-        <!-- <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
- -->
-
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $(".showCity").hide();
-                $(".input-showCity").click(function(){
-                    $(".showCity").toggle();
-                    $(".showTour").hide();
-                });
-
-                $(".showTour").hide();
-                $(".input-showTour").click(function(){
-                    $(".showTour").toggle();
-                    $(".showCity").hide();
-                });
-            });
-        </script>
-
-
         <script type="text/javascript">
 
             $(".save").on("click", function() {
                 let travel = {
-                    title: $('#name').val(),
-                    when: $('#start').val(),
-                    how: $('#transport').val(),
+                    where: $('#name').val(),
                     start: $('#city-a').val(),
+                    startDate: $('#city-a-date').val(),
+                    startTime: $('#city-a-time').val(),
                     end: $('#city-r').val(),
-                    sleep: $('#hotel').val()
+                    endDate: $('#city-r-date').val(),
+                    endTime: $('#city-r-time').val(),
+                    how: $('#transport').val()
                 };
 
                 //get di tutto quello che hai salvato
@@ -193,7 +142,16 @@
                 travels.push(travel);
 
                 //salvataggio di vecchi + nuovo
-                localStorage.setItem("travel", JSON.stringify(travels));
+                localStorage.setItem("travels", JSON.stringify(travels));
+
+                $('#name').val("")
+                $('#city-a').val("")
+                $('#city-a-date').val("")
+                $('#city-a-time').val("")
+                $('#city-r').val("")
+                $('#city-r-date').val("")
+                $('#city-r-time').val("")
+                $('#transport').val("")
             });
             // Wait for Cordova to load
             //
